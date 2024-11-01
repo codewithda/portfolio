@@ -1,0 +1,604 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23fea6f9' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23fd90f6' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%23fb7bf2' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23f867ee' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23f553e8' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23f23fe3' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23EE2CDC' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+background-attachment: scroll; /* Background scrolls with content */
+    background-size: cover; /* Cover the entire background */
+    font-family: 'Righteous', cursive;
+    line-height: 1.6;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Navigation Bar Styles */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    
+    /* Background with blur */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent */
+    backdrop-filter: blur(10px); /* Adjust blur strength here */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Logo */
+.logo img {
+    width: 50px;
+    height: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: #490a41;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    background-color: #f340ae;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    nav .navbar .nav-links {
+        display: none !important; /* Hides navigation links on mobile */
+    }
+
+    /* Reduce logo size */
+    .logo img {
+        width: 25px; /* Adjust to make it smaller */
+        height: auto;
+    }
+
+    /* Reduce navbar padding to make it less tall */
+    nav {
+        padding: 5px 0; /* Adjust to your preferred height */
+    }
+}
+
+
+/* Homepage Section */
+.homepage-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding-top: 60px; /* for spacing below the navbar */
+}
+
+/* Content Container */
+/* Content Container */
+.content-container {
+    display: flex;
+    justify-content: space-between; /* Position the card and text side by side */
+    align-items: center; /* Center items vertically */
+    width: 90%; /* Adjust as needed */
+    max-width: 1200px; /* Optional max width for layout */
+}
+
+
+/* Card Animation */
+@keyframes cardBounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Profile Card */
+.card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    animation: cardBounce 0.6s ease forwards; /* Apply bounce animation on hover */
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.resume-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    background-color: #f340ae;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.resume-button:hover {
+    background-color: #d32e8e;
+}
+
+/* Text Container */
+.text-container {
+    max-width: 600px; /* Limit width for the text section */
+    padding-left: 20px; /* Spacing between card and text */
+}
+
+.text-container h1 {
+    font-size: 2.5rem; /* Adjust font size for the title */
+    margin-bottom: 15px; /* Spacing below the title */
+}
+
+.text-container p {
+    font-size: 1.2rem; /* Adjust font size for the paragraph */
+    line-height: 1.6; /* Spacing between lines */
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Add padding to navbar */
+    }
+
+    .mobile-menu-icon {
+        display: flex; /* Ensure the mobile menu icon is visible */
+        cursor: pointer; /* Change cursor to indicate clickable */
+        margin-left: auto; /* Align to the right */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Full width for the dropdown */
+        position: absolute; /* Position dropdown */
+        top: 60px; /* Adjust based on navbar height */
+        left: 0; /* Align to the left */
+        background: rgba(255, 255, 255, 0.9); /* Background for dropdown */
+        padding: 10px 0; /* Add padding */
+        z-index: 999; /* Ensure dropdown is on top */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Spacing for vertical links */
+        text-align: center; /* Center align links */
+    }
+
+    .nav-links a {
+        padding: 10px; /* Add padding to links */
+        display: block; /* Make links block elements for easy clicking */
+    }
+}
+
+/* Extra adjustments for very small screens */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px; /* Adjust navbar padding */
+    }
+
+    .nav-links a {
+        padding: 15px; /* Increase padding for easier touch interaction */
+        font-size: 1.2rem; /* Slightly larger font for readability */
+    }
+}
+
+
+
+/* Extra adjustments for very small screens */
+@media (max-width: 480px) {
+    .nav-links a {
+        padding: 15px; /* Increase padding for easier touch interaction */
+        font-size: 1.2rem; /* Slightly larger font for readability */
+    }
+}
+
+/* About Me Section */
+/* About Me Section */
+.about-section {
+    padding: 60px 0; /* Space above and below */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+    text-align: center; /* Center the text */
+}
+
+/* Content Container for About Me */
+.about-section .content-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between text and image */
+    max-width: 1200px; /* Maintain consistency with other sections */
+    margin: auto; /* Center the container */
+}
+
+/* Image Container */
+.image-container {
+    flex: 1; /* Allow the image to take up available space */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% {
+        transform: translatey(0);
+    }
+    50% {
+        transform: translatey(-10px); /* Adjust the value for the desired height */
+    }
+    100% {
+        transform: translatey(0);
+    }
+}
+
+/* About Image */
+.about-image {
+    max-width: 450px; /* Increase the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the image oval */
+    object-fit: cover; /* Cover the area without distorting the image */
+    border: 5px solid #f340ae; /* Optional: Add a border for emphasis */
+    animation: float 3s ease-in-out infinite; /* Apply the floating animation */
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 60px 0; /* Space above and below */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+}
+
+/* Skills Section Title */
+.skills-section h2 {
+    font-size: 2.5rem; /* Adjust font size for the title */
+    margin-bottom: 30px; /* Spacing below the title */
+    text-align: center; /* Center the title */
+}
+
+/* Skills List */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items */
+    max-width: 1100px; /* Limit width for layout to avoid excessive space */
+    margin: auto; /* Center the container */
+    padding: 0 15px; /* Add some horizontal padding */
+    margin-left: 150px;
+}
+
+/* Individual Skill Card */
+.skill-card {
+    background: #f340ae; /* Card background color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    margin: 10px; /* Margin around the card */
+    width: 180px; /* Fixed width for cards */
+    text-align: center; /* Center text inside card */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Skill Name */
+.skill-card span {
+    display: block; /* Block display for skill name */
+    font-size: 1.5rem; /* Font size for skill names */
+    font-weight: bold; /* Make skills bold */
+    color: #fff; /* Text color for skill name */
+    margin-bottom: 10px; /* Space below the skill name */
+}
+
+/* Skill Bar */
+.skill-bar {
+    width: 0; /* Start with 0 width */
+    height: 25px; /* Height of the skill bar */
+    background-color: #fff; /* Skill bar color */
+    border-radius: 5px; /* Rounded corners */
+    transition: width 1s ease; /* Smooth transition for width */
+    color: #f340ae; /* Text color inside the bar */
+    text-align: center; /* Center text inside the bar */
+    line-height: 25px; /* Center text vertically */
+    font-weight: bold; /* Make percentage bold */
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack navbar items */
+        align-items: flex-start; /* Align to start */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack nav links vertically */
+        width: 100%; /* Full width for mobile */
+        display: block; /* Show nav links */
+        margin-top: 10px; /* Add space above nav links */
+    }
+
+    .nav-links li {
+        margin-left: 0; /* Remove margin */
+        margin-top: 10px; /* Add margin for spacing */
+    }
+
+    .content-container {
+        flex-direction: column; /* Stack content vertically */
+        padding: 0 15px; /* Add some padding */
+    }
+
+    .text-container {
+        padding-left: 0; /* Remove left padding */
+        text-align: center; /* Center text */
+    }
+
+    .profile-image {
+        width: 200px; /* Smaller profile image */
+        height: 200px; /* Adjust height */
+    }
+
+    .about-image {
+        max-width: 300px; /* Smaller about image */
+    }
+
+    .skills-list {
+        margin-left: 0; /* Reset margin */
+        flex-direction: column; /* Stack skills vertically */
+        align-items: center; /* Center items */
+    }
+
+    .skill-card {
+        width: 90%; /* Use most of the screen width */
+        max-width: 300px; /* Limit max width for skill cards */
+    }
+}
+
+
+/* Responsive Design for Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .content-container {
+        flex-direction: row; /* Keep elements in a row */
+    }
+
+    .profile-image {
+        width: 250px; /* Medium profile image */
+        height: 250px; /* Adjust height */
+    }
+
+    .about-image {
+        max-width: 400px; /* Medium about image */
+    }
+
+    .skills-list {
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: center; /* Center items */
+    }
+
+    .skill-card {
+        width: 45%; /* Two cards per row */
+        max-width: 200px; /* Limit max width for skill cards */
+    }
+}
+
+/* Responsive Design for Laptops */
+@media (min-width: 1025px) {
+    .navbar {
+        flex-direction: row; /* Horizontal layout for larger screens */
+    }
+
+    .nav-links {
+        display: flex; /* Show nav links inline */
+    }
+
+    .content-container {
+        justify-content: space-between; /* Space out content */
+    }
+}
+
+.projects-section {
+    padding: 2em 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: left;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-card h3 {
+    padding: 0.5em;
+    font-size: 1.25em;
+    color: #333;
+}
+
+.project-card p {
+    padding: 0 1em 1em;
+    color: #666;
+}
+
+.project-link {
+    display: block;
+    padding: 0.75em;
+    background-color: #f340ae;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    background-color: #bb0d8f;
+}
+.contact-section {
+    padding: 2em;
+    text-align: center;
+    background-color: #fdf0f0; /* Light pastel pink */
+}
+
+.contact-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 2em;
+}
+
+.formm {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+}
+
+.form-group label {
+    font-size: 1em;
+    color: #555;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1em;
+    border: 2px solid #fdd5d5; /* Light pink border */
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ffa6a6; /* Slightly darker pink when focused */
+}
+
+.submit-button {
+    display: inline-block;
+    background-color: #ffa6a6; /* Soft pink */
+    color: #fff;
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    font-family: 'Righteous', sans-serif; /* Match font with your main style */
+    border: none;
+    border-radius: 25px; /* More rounded shape for a 'cute' look */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(255, 166, 166, 0.4); /* Soft shadow */
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #ff7a7a; /* Darker pink on hover */
+    transform: translateY(-3px); /* Lift button slightly */
+    box-shadow: 0 6px 8px rgba(255, 122, 122, 0.4); /* Enhance shadow */
+}
+
+.submit-button:active {
+    transform: translateY(1px); /* Subtle press effect */
+    box-shadow: 0 3px 5px rgba(255, 122, 122, 0.4);
+}
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #fdf0f0; /* Light pastel pink or match with page theme */
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid #f340ae; /* Adjust color to match your theme */
+    margin: 0 auto;
+    width: 80%; /* Adjust the width as desired */
+}
+
+footer p {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0.5em;
+    font-family: 'Righteous', cursive; /* Match font with your main style */
+}
+.social-icons {
+    margin-top: 1.5em; /* Space above the icons */
+}
+
+.social-icon {
+    margin: 0 0.5em; /* Space between icons */
+    font-size: 1.5em; /* Size of the icons */
+    color: #e942b7; /* Color of the icons */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.social-icon:hover {
+    color: #ffa6a6; /* Change color on hover */
+}
